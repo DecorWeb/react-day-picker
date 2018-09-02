@@ -128,7 +128,7 @@ export default class Navbar extends Component {
         role="button"
         aria-label={labels.previousMonth}
         key="previous"
-        className={dir === 'ltr' ? previousClassName : nextClassName}
+        className={dir === 'ltr' ? nextClassName : previousClassName}
         onKeyDown={shouldShowPrevious ? previousKeyDownHandler : undefined}
         onClick={shouldShowPrevious ? previousClickHandler : undefined}
       />
@@ -140,7 +140,7 @@ export default class Navbar extends Component {
         role="button"
         aria-label={labels.nextMonth}
         key="right"
-        className={dir === 'ltr' ? nextClassName : previousClassName}
+        className={dir === 'ltr' ? previousClassName : nextClassName}
         onKeyDown={shouldShowNext ? nextKeyDownHandler : undefined}
         onClick={shouldShowNext ? nextClickHandler : undefined}
       />
@@ -161,8 +161,8 @@ export default class Navbar extends Component {
     return (
       <div className={className || classNames.navBar}>
         {dir === 'rtl'
-          ? [previousButton, childrenWithProps, nextButton]
-          : [nextButton, childrenWithProps, previousButton]}
+          ? [nextButton, childrenWithProps, previousButton]
+          : [previousButton, childrenWithProps, nextButton]}
       </div>
     );
   }
