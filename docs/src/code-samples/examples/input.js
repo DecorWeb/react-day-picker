@@ -20,6 +20,7 @@ export default function Example() {
             },
             value: -1,
           },
+          isImmediate: true
         }}
       />
     </div>

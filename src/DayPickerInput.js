@@ -559,14 +559,19 @@ export default class DayPickerInput extends React.Component {
 
   render() {
     const Input = this.props.component;
-    const { inputProps } = this.props;
+    const { inputProps, dayPickerProps } = this.props;
+
     return (
       <div className={this.props.classNames.container}>
         <Input
           ref={el => (this.input = el)}
           placeholder={this.props.placeholder}
           {...inputProps}
-          value={this.state.typedValue || this.state.value}
+          value={
+            !dayPickerProps.isImmediate
+              ? this.state.typedValue || this.state.value
+              : 'מיידי'
+          }
           onChange={this.handleInputChange}
           onFocus={this.handleInputFocus}
           onBlur={this.handleInputBlur}
