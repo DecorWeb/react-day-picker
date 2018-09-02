@@ -1,8 +1,10 @@
 /* DayPicker styles */
+@import url('https://fonts.googleapis.com/css?family=Rubik:300,400,500,700');
 
 .DayPicker {
   display: inline-block;
   font-size: 1rem;
+  font-family: Rubik, serif;
 }
 
 .DayPicker-wrapper {
@@ -33,6 +35,8 @@
 .DayPicker-NavBar {
   display: flex;
   justify-content: space-between;
+  border-bottom: 1px solid #e8e8e8;
+  padding-bottom: 8px;
 }
 
 .DayPicker-NavButton {
@@ -42,27 +46,30 @@
   /*left: auto;*/
 
   display: inline-block;
-  margin-top: 2px;
-  width: 1.25em;
-  height: 1.25em;
+  /*margin-top: 2px;*/
+  /*width: 1.25em;*/
+  /*height: 1.25em;*/
   background-position: center;
   background-size: 50%;
   background-repeat: no-repeat;
-  color: #8B9898;
   cursor: pointer;
+  font-size: 1.5rem;
+  color: #315579;
+
 }
 
 .DayPicker-NavButton:hover {
   opacity: 0.8;
 }
 
-.DayPicker-NavButton--prev {
+.DayPicker-NavButton--prev::after {
+  content: '>';
   /*margin-right: 1.5em;*/
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAwCAYAAAB5R9gVAAAABGdBTUEAALGPC/xhBQAAAVVJREFUWAnN2G0KgjAYwPHpGfRkaZeqvgQaK+hY3SUHrk1YzNLay/OiEFp92I+/Mp2F2Mh2lLISWnflFjzH263RQjzMZ19wgs73ez0o1WmtW+dgA01VxrE3p6l2GLsnBy1VYQOtVSEH/atCCgqpQgKKqYIOiq2CBkqtggLKqQIKgqgCBjpJ2Y5CdJ+zrT9A7HHSTA1dxUdHgzCqJIEwq0SDsKsEg6iqBIEoq/wEcVRZBXFV+QJxV5mBtlDFB5VjYTaGZ2sf4R9PM7U9ZU+lLuaetPP/5Die3ToO1+u+MKtHs06qODB2zBnI/jBd4MPQm1VkY79Tb18gB+C62FdBFsZR6yeIo1YQiLJWMIiqVjQIu1YSCLNWFgijVjYIuhYYCKoWKAiiFgoopxYaKLUWOii2FgkophYp6F3r42W5A9s9OcgNvva8xQaysKXlFytoqdYmQH6tF3toSUo0INq9AAAAAElFTkSuQmCC');
+  /*background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAwCAYAAAB5R9gVAAAABGdBTUEAALGPC/xhBQAAAVVJREFUWAnN2G0KgjAYwPHpGfRkaZeqvgQaK+hY3SUHrk1YzNLay/OiEFp92I+/Mp2F2Mh2lLISWnflFjzH263RQjzMZ19wgs73ez0o1WmtW+dgA01VxrE3p6l2GLsnBy1VYQOtVSEH/atCCgqpQgKKqYIOiq2CBkqtggLKqQIKgqgCBjpJ2Y5CdJ+zrT9A7HHSTA1dxUdHgzCqJIEwq0SDsKsEg6iqBIEoq/wEcVRZBXFV+QJxV5mBtlDFB5VjYTaGZ2sf4R9PM7U9ZU+lLuaetPP/5Die3ToO1+u+MKtHs06qODB2zBnI/jBd4MPQm1VkY79Tb18gB+C62FdBFsZR6yeIo1YQiLJWMIiqVjQIu1YSCLNWFgijVjYIuhYYCKoWKAiiFgoopxYaKLUWOii2FgkophYp6F3r42W5A9s9OcgNvva8xQaysKXlFytoqdYmQH6tF3toSUo0INq9AAAAAElFTkSuQmCC');*/
 }
 
-.DayPicker-NavButton--next {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAwCAYAAAB5R9gVAAAABGdBTUEAALGPC/xhBQAAAXRJREFUWAnN119ugjAcwPHWzJ1gnmxzB/BBE0n24m4xfNkTaOL7wOtsl3AXMMb+Vjaa1BG00N8fSEibPpAP3xAKKs2yjzTPH9RAjhEo9WzPr/Vm8zgE0+gXATAxxuxtqeJ9t5tIwv5AtQAApsfT6TPdbp+kUBcgVwvO51KqVhMkXKsVJFXrOkigVhCIs1Y4iKlWZxB1rX4gwlpRIIpa8SDkWmggrFq4IIRaJKCYWnSgnrXIQV1r8YD+1Vrn+bReagysIFfLABRt31v8oBu1xEBttfRbltmfjgEcWh9snUS2kNdBK6WN1vrOWxObWsz+fjxevsxmB1GQDfINWiev83nhaoiB/CoOU438oPrhXS0WpQ9xc1ZQWxWHqUYe0I0qrKCQKjygDlXIQV2r0IF6ViEBxVTBBSFUQQNhVYkHIVeJAtkNsbQ7c1LtzP6FsObhb2rCKv7NBIGoq4SDmKoEgTirXAcJVGkFSVVpgoSrXICGUMUH/QBZNSUy5XWUhwAAAABJRU5ErkJggg==');
+.DayPicker-NavButton--next::after {
+  content: '<';
 }
 
 .DayPicker-NavButton--interactionDisabled {
@@ -70,15 +77,16 @@
 }
 
 .DayPicker-Caption {
-  display: table-caption;
-  /*margin-bottom: 0.5em;*/
-  padding: 0 0.5em;
+  line-height: 14px;
   text-align: left;
+  color: #315579;
+  display: flex;
+  align-items: center;
 }
 
 .DayPicker-Caption > div {
   font-weight: 500;
-  font-size: 1.15em;
+  font-size: 14px;
 }
 
 .DayPicker-Weekdays {
@@ -181,12 +189,12 @@
 .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
   position: relative;
 
-  background-color: #4A90E2;
-  color: #F0F8FF;
+  background-color: #315579;
+  color: #FFFFFF;
 }
 
 .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside):hover {
-  background-color: #51A0FA;
+  background-color: #315579;
 }
 
 .DayPicker:not(.DayPicker--interactionDisabled)
