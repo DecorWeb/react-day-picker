@@ -1,6 +1,6 @@
 {
   "name": "@decor/react-day-picker",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "Flexible date picker component for React",
   "main": "DayPicker.js",
   "style": "lib/style.css",
@@ -32,7 +32,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gpbl/react-day-picker.git"
+    "url": "https://github.com/DecorWeb/react-day-picker.git"
   },
   "keywords": [
     "react",
