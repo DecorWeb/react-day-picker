@@ -116,6 +116,7 @@ export default class Month extends Component {
         onMouseUp={this.props.onDayMouseUp}
         onTouchEnd={this.props.onDayTouchEnd}
         onTouchStart={this.props.onDayTouchStart}
+        isImmediate={this.props.isImmediate}
       >
         {this.props.renderDay(day, modifiers)}
       </Day>

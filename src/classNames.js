@@ -30,4 +30,6 @@ export default {
   selected: 'selected',
   disabled: 'disabled',
   outside: 'outside',
+
+  immediateButton: 'DayPicker-Overlay-Button',
 };

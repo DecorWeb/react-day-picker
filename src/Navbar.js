@@ -18,6 +18,7 @@ export default class Navbar extends Component {
     onPreviousClick: PropTypes.func,
     onNextClick: PropTypes.func,
     dir: PropTypes.string,
+    locale: PropTypes.string,
     labels: PropTypes.shape({
       previousMonth: PropTypes.string.isRequired,
       nextMonth: PropTypes.string.isRequired,
@@ -145,22 +146,14 @@ export default class Navbar extends Component {
       />
     );
 
-    // const captionProps = {
-    //   date: month,
-    //   classNames,
-    //   months,
-    //   localeUtils,
-    //   locale: this.props.locale,
-    // };
-
     const captionProps = {
       date: month,
       localeUtils,
+      locale: this.props.locale,
       classNames,
       months: localeUtils.getMonths(),
     };
 
-    console.log(month);
     const childrenWithProps = React.Children.map(children, child =>
       React.cloneElement(child, { ...captionProps })
     );
@@ -168,8 +161,8 @@ export default class Navbar extends Component {
     return (
       <div className={className || classNames.navBar}>
         {dir === 'rtl'
-          ? [nextButton, childrenWithProps, previousButton]
-          : [previousButton, childrenWithProps, nextButton]}
+          ? [previousButton, childrenWithProps, nextButton]
+          : [nextButton, childrenWithProps, previousButton]}
       </div>
     );
   }

@@ -42,6 +42,7 @@ export default class Day extends Component {
     onTouchStart: PropTypes.func,
     onFocus: PropTypes.func,
     tabIndex: PropTypes.number,
+    isImmediate: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -106,6 +107,7 @@ export default class Day extends Component {
       ariaLabel,
       ariaDisabled,
       ariaSelected,
+      isImmediate,
       children,
     } = this.props;
 
@@ -114,7 +116,25 @@ export default class Day extends Component {
       // When using CSS modules prefix the modifier as required by the BEM syntax
       className += ` ${Object.keys(modifiers).join(' ')}`;
     } else {
-      className += Object.keys(modifiers)
+      const filteredModifiers = Object.entries(modifiers).reduce(
+        (acc, entry) => {
+          const key = entry[0];
+
+          const value = entry[1];
+
+          console.log(key, isImmediate)
+          if (key === 'selected' && isImmediate) {
+            return acc;
+          }
+
+          acc[key] = value;
+
+          return acc;
+        },
+        {}
+      );
+
+      className += Object.keys(filteredModifiers)
         .map(modifier => ` ${className}--${modifier}`)
         .join('');
     }
@@ -139,7 +159,7 @@ export default class Day extends Component {
         role="gridcell"
         aria-label={ariaLabel}
         aria-disabled={ariaDisabled}
-        aria-selected={ariaSelected}
+        aria-selected={ariaSelected && !isImmediate}
         onClick={handleEvent(onClick, day, modifiers)}
         onKeyDown={handleEvent(onKeyDown, day, modifiers)}
         onMouseEnter={handleEvent(onMouseEnter, day, modifiers)}

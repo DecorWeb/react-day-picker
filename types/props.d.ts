@@ -61,7 +61,7 @@ export interface DayPickerProps {
   localeUtils?: LocaleUtils;
   modifiers?: Partial<Modifiers>;
   modifiersStyles?: object;
-  weekdaysOverlay?: object;
+  supportImmediate?: boolean;
   month?: Date;
   months?: [
     string,
