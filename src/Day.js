@@ -122,7 +122,6 @@ export default class Day extends Component {
 
           const value = entry[1];
 
-          console.log(key, isImmediate)
           if (key === 'selected' && isImmediate) {
             return acc;
           }
