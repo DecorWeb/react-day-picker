@@ -127,10 +127,8 @@ export default class Month extends Component {
       classNames,
 
       month,
-      months,
 
       fixedWeeks,
-      captionElement,
       weekdayElement,
 
       locale,
@@ -139,21 +137,10 @@ export default class Month extends Component {
       weekdaysShort,
       firstDayOfWeek,
 
-      onCaptionClick,
-
       showWeekNumbers,
       showWeekDays,
       onWeekClick,
     } = this.props;
-
-    const captionProps = {
-      date: month,
-      classNames,
-      months,
-      localeUtils,
-      locale,
-      onClick: onCaptionClick ? e => onCaptionClick(month, e) : undefined,
-    };
 
     const weeks = Helpers.getWeekArray(month, firstDayOfWeek, fixedWeeks);
 

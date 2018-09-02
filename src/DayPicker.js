@@ -127,6 +127,11 @@ export class DayPicker extends Component {
     onCaptionClick: PropTypes.func,
     onWeekClick: PropTypes.func,
     onTodayButtonClick: PropTypes.func,
+    weekdaysOverlay: PropTypes.oneOfType([
+      PropTypes.element,
+      PropTypes.func,
+      PropTypes.instanceOf(Component),
+    ]),
   };
 
   static defaultProps = {
@@ -560,6 +565,10 @@ export class DayPicker extends Component {
     );
   }
 
+  renderWeekDaysOverlay() {
+    return <div className={classNames.weekdaysOverlay}>{this.props.weekdaysOverlay}</div>;
+  }
+
   render() {
     let className = this.props.classNames.container;
 
@@ -589,6 +598,7 @@ export class DayPicker extends Component {
           onBlur={this.props.onBlur}
         >
           {this.renderNavbar()}
+          {this.renderWeekDaysOverlay()}
           <div className={this.props.classNames.months}>
             {this.renderMonths()}
           </div>

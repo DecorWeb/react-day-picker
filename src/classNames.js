@@ -23,6 +23,8 @@ export default {
   footer: 'DayPicker-Footer',
   todayButton: 'DayPicker-TodayButton',
 
+  weekdaysOverlay: 'DayPicker-WeekDaysOverlay',
+
   // default modifiers
   today: 'today',
   selected: 'selected',
