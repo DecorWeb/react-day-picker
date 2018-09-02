@@ -1,6 +1,6 @@
 {
-  "name": "react-day-picker",
-  "version": "7.2.2",
+  "name": "@decor/react-day-picker",
+  "version": "1.0.0",
   "description": "Flexible date picker component for React",
   "main": "DayPicker.js",
   "style": "lib/style.css",
@@ -50,6 +50,9 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/gpbl/react-day-picker/issues"
+  },
+  "publishConfig": {
+    "registry": "http://18.196.24.199:4873"
   },
   "homepage": "https://react-day-picker.js.org",
   "peerDependencies": {

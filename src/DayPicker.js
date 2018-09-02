@@ -155,13 +155,13 @@ export class DayPicker extends Component {
     showWeekDays: true,
     renderDay: day => day.getDate(),
     renderWeek: weekNumber => weekNumber,
-    weekdayElement: <Weekday />,
+    weekdayElement: <Weekday/>,
     navbarElement: (
       <Navbar classNames={classNames}>
-        <Caption classNames={classNames} />
+        <Caption classNames={classNames}/>
       </Navbar>
     ),
-    captionElement: <Caption classNames={classNames} />,
+    captionElement: <Caption classNames={classNames}/>,
   };
 
   dayPicker = null;
@@ -195,7 +195,7 @@ export class DayPicker extends Component {
    */
   getCurrentMonthFromProps(props) {
     const initialMonth = Helpers.startOfMonth(
-      props.month || props.initialMonth
+      props.month || props.initialMonth,
     );
     let currentMonth = initialMonth;
 
@@ -203,7 +203,7 @@ export class DayPicker extends Component {
       const diffInMonths = Helpers.getMonthsDiff(props.fromMonth, currentMonth);
       currentMonth = DateUtils.addMonths(
         props.fromMonth,
-        Math.floor(diffInMonths / props.numberOfMonths) * props.numberOfMonths
+        Math.floor(diffInMonths / props.numberOfMonths) * props.numberOfMonths,
       );
     } else if (
       props.toMonth &&
@@ -212,7 +212,7 @@ export class DayPicker extends Component {
     ) {
       currentMonth = DateUtils.addMonths(
         props.toMonth,
-        1 - this.props.numberOfMonths
+        1 - this.props.numberOfMonths,
       );
     }
     return currentMonth;
@@ -221,7 +221,7 @@ export class DayPicker extends Component {
   getNextNavigableMonth() {
     return DateUtils.addMonths(
       this.state.currentMonth,
-      this.props.numberOfMonths
+      this.props.numberOfMonths,
     );
   }
 
@@ -237,7 +237,7 @@ export class DayPicker extends Component {
   allowNextMonth() {
     const nextMonth = DateUtils.addMonths(
       this.state.currentMonth,
-      this.props.numberOfMonths
+      this.props.numberOfMonths,
     );
     return this.allowMonth(nextMonth);
   }
@@ -292,7 +292,7 @@ export class DayPicker extends Component {
       : 1;
     const previousMonth = DateUtils.addMonths(
       this.state.currentMonth,
-      -deltaMonths
+      -deltaMonths,
     );
     this.showMonth(previousMonth, callback);
   };
@@ -355,7 +355,7 @@ export class DayPicker extends Component {
         const nextMonthDayNodeIndex = 7 - daysAfterIndex;
         Helpers.getDayNodes(this.dayPicker, this.props.classNames)[
           nextMonthDayNodeIndex
-        ].focus();
+          ].focus();
       });
     } else {
       dayNodes[dayNodeIndex + 7].focus();
@@ -371,7 +371,7 @@ export class DayPicker extends Component {
       this.showPreviousMonth(() => {
         const previousMonthDayNodes = Helpers.getDayNodes(
           this.dayPicker,
-          this.props.classNames
+          this.props.classNames,
         );
         const startOfLastWeekOfMonth = previousMonthDayNodes.length - 7;
         const previousMonthDayNodeIndex = startOfLastWeekOfMonth + dayNodeIndex;
@@ -480,7 +480,7 @@ export class DayPicker extends Component {
       this.props.onTodayButtonClick(
         new Date(today.getFullYear(), today.getMonth(), today.getDate()),
         ModifiersUtils.getModifiersForDay(today, this.props.modifiers),
-        e
+        e,
       );
     }
   };
@@ -530,7 +530,7 @@ export class DayPicker extends Component {
           firstDayOfWeek={firstDayOfWeek}
           onDayKeyDown={this.handleDayKeyDown}
           onDayClick={this.handleDayClick}
-        />
+        />,
       );
     }
 
@@ -566,7 +566,11 @@ export class DayPicker extends Component {
   }
 
   renderWeekDaysOverlay() {
-    return <div className={classNames.weekdaysOverlay}>{this.props.weekdaysOverlay}</div>;
+    return (
+      <div className={classNames.weekdaysOverlay}>
+        {this.props.weekdaysOverlay}
+      </div>
+    );
   }
 
   render() {
