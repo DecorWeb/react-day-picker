@@ -31,13 +31,15 @@
 }
 
 .DayPicker-NavBar {
+  display: flex;
+  justify-content: space-between;
 }
 
 .DayPicker-NavButton {
-  position: absolute;
-  top: 1em;
-  right: 1.5em;
-  left: auto;
+  /*position: absolute;*/
+  /*top: 1em;*/
+  /*right: 1.5em;*/
+  /*left: auto;*/
 
   display: inline-block;
   margin-top: 2px;

@@ -11,6 +11,7 @@ export default class Navbar extends Component {
       navButtonPrev: PropTypes.string.isRequired,
       navButtonNext: PropTypes.string.isRequired,
     }),
+    month: PropTypes.instanceOf(Date),
     className: PropTypes.string,
     showPreviousButton: PropTypes.bool,
     showNextButton: PropTypes.bool,
@@ -36,6 +37,7 @@ export default class Navbar extends Component {
 
   shouldComponentUpdate(nextProps) {
     return (
+      nextProps.month !== this.props.month ||
       nextProps.labels !== this.props.labels ||
       nextProps.dir !== this.props.dir ||
       this.props.showPreviousButton !== nextProps.showPreviousButton ||
@@ -79,6 +81,9 @@ export default class Navbar extends Component {
       showNextButton,
       labels,
       dir,
+      month,
+      localeUtils,
+      children,
     } = this.props;
 
     let previousClickHandler;
@@ -140,11 +145,31 @@ export default class Navbar extends Component {
       />
     );
 
+    // const captionProps = {
+    //   date: month,
+    //   classNames,
+    //   months,
+    //   localeUtils,
+    //   locale: this.props.locale,
+    // };
+
+    const captionProps = {
+      date: month,
+      localeUtils,
+      classNames,
+      months: localeUtils.getMonths(),
+    };
+
+    console.log(month);
+    const childrenWithProps = React.Children.map(children, child =>
+      React.cloneElement(child, { ...captionProps })
+    );
+
     return (
       <div className={className || classNames.navBar}>
         {dir === 'rtl'
-          ? [nextButton, previousButton]
-          : [previousButton, nextButton]}
+          ? [nextButton, childrenWithProps, previousButton]
+          : [previousButton, childrenWithProps, nextButton]}
       </div>
     );
   }

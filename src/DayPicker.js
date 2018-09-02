@@ -151,7 +151,11 @@ export class DayPicker extends Component {
     renderDay: day => day.getDate(),
     renderWeek: weekNumber => weekNumber,
     weekdayElement: <Weekday />,
-    navbarElement: <Navbar classNames={classNames} />,
+    navbarElement: (
+      <Navbar classNames={classNames}>
+        <Caption classNames={classNames} />
+      </Navbar>
+    ),
     captionElement: <Caption classNames={classNames} />,
   };
 

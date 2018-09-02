@@ -154,14 +154,11 @@ export default class Month extends Component {
       locale,
       onClick: onCaptionClick ? e => onCaptionClick(month, e) : undefined,
     };
-    const caption = React.isValidElement(captionElement)
-      ? React.cloneElement(captionElement, captionProps)
-      : React.createElement(captionElement, captionProps);
 
     const weeks = Helpers.getWeekArray(month, firstDayOfWeek, fixedWeeks);
+
     return (
       <div className={classNames.month} role="grid">
-        {caption}
         {showWeekDays && (
           <Weekdays
             classNames={classNames}

@@ -50,6 +50,7 @@ export default class Caption extends Component {
       localeUtils,
       onClick,
     } = this.props;
+    console.log(date);
     return (
       <div className={classNames.caption} role="heading">
         <div onClick={onClick} onKeyUp={this.handleKeyUp}>
