@@ -90,6 +90,7 @@ export class DayPicker extends Component {
     className: PropTypes.string,
     containerProps: PropTypes.object,
     tabIndex: PropTypes.number,
+    hide: PropTypes.func.isRequired,
 
     // Custom elements
     renderDay: PropTypes.func,
@@ -448,6 +449,7 @@ export class DayPicker extends Component {
 
   handleImmediateClick = () => {
     this.props.immediateButton.handler(this.props.immediateButton.value);
+    this.props.hide();
   };
 
   handleDayClick = (day, modifiers, e) => {
