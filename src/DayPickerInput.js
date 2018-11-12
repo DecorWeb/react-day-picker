@@ -35,6 +35,7 @@ OverlayComponent.propTypes = {
   month: PropTypes.instanceOf(Date),
   children: PropTypes.node,
   classNames: PropTypes.object,
+  tabIndex: PropTypes.number,
 };
 
 /**
@@ -121,6 +122,7 @@ export default class DayPickerInput extends React.Component {
     onFocus: PropTypes.func,
     onBlur: PropTypes.func,
     onKeyUp: PropTypes.func,
+    overlayTabIndex: PropTypes.number,
   };
 
   static defaultProps = {
@@ -136,6 +138,7 @@ export default class DayPickerInput extends React.Component {
     keepFocus: true,
     component: 'input',
     inputProps: {},
+    overlayTabIndex: 0,
     overlayComponent: OverlayComponent,
     classNames: {
       container: 'DayPickerInput',
@@ -541,7 +544,7 @@ export default class DayPickerInput extends React.Component {
         month={this.state.month}
         selectedDay={selectedDay}
         input={this.input}
-        tabIndex={0} // tabIndex is necessary to catch focus/blur events on Safari
+        tabIndex={this.props.overlayTabIndex} // tabIndex is necessary to catch focus/blur events on Safari
         onFocus={this.handleOverlayFocus}
         onBlur={this.handleOverlayBlur}
       >
